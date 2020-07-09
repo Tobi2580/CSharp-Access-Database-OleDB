@@ -1,4 +1,4 @@
-# CSharp-Database
+# CSharp-Access-Database-OleDB
 Connecting a database to your C# Project
 
 1. Create a new Windows Forms Application Project in Visual Studio
