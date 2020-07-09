@@ -1,0 +1,26 @@
+            OleDbCommand cmd = con.CreateCommand();
+
+            string Rechner = "irgendwas";
+            string Befehl_IPSQ_Bestandsliste = "SELECT Rechner FROM IPSQ_Bestandsliste Where Gebäude = '" + Ausgewählt + "' group by Rechner order by Rechner";
+
+            OleDbCommand command2 = new OleDbCommand(Befehl_IPSQ_Bestandsliste, con);
+
+            try
+            {
+                con.Open();
+                // Execute command
+                using (OleDbDataReader reader2 = command2.ExecuteReader())
+                {
+                    while (reader2.Read())
+                    {
+                        Standort = reader2["Standort"].ToString();
+                        listBox2.Items.Add(Standort);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            con.Close();
